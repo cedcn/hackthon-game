@@ -1,8 +1,130 @@
 html,
 body {
   color: #fff;
-  background-color: #1abc9c;
+  background-color: #2f2f2f;
+}
+
+.game {
+  max-width: 750px;
+  margin: 0 auto;
+}
+
+.switch {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  background-color: #0e4c3f;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 100px;
+  transition: all 0.3s;
+  font-size: 20px;
+  cursor: pointer;
+
+  &.active {
+    background-color: red;
+  }
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%);
+}
+
+input {
+  font-size: 30px;
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+  border-bottom: 1px solid #eee;
+  width: 30%;
+  outline: none;
+}
+
+button {
+  width: 10%;
+  line-height: 3;
+  background-color: #000;;
+  color: #fff;
+  font-size: 15px;
+  border: 0;
+  margin-top: 20px;
 }
 
 
-@import "loading";
+.matix {
+  position: absolute;
+
+  &.user-pattern {
+    z-index: 10;
+  }
+}
+
+.point {
+  position: absolute;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(97, 97, 97, 0.48);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 50px;
+  box-sizing: border-box;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.17);
+
+  &.dashed {
+    border: 1px solid rgba(255, 96, 0, 0.79);
+  }
+}
+
+
+.screen {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+.move-point {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: red;
+  border-radius: 50%;
+  z-index: 10;
+  transition: all 0.1s;
+
+  &.self {
+    background-color: blue;
+    z-index: 1000;
+  }
+}
+
+.control {
+  position: fixed;
+  left: 50%;
+  bottom: 50px;
+  z-index: 88;
+  transform: translateX(-50%);
+
+  .button {
+    width: 80px;
+    height: 80px;
+    margin-right: 1px;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgba(97, 97, 97, 0.48);
+    text-align: center;
+    line-height: 80px;
+  }
+}

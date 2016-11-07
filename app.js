@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 const server = require('http').createServer(app);
 const port = process.env.PORT || 1024;
 
+const request = require('request');
 require('./server/ioconnect')(server);
 
 global.__isDev__ = app.locals.isDev = app.get('env') === 'development';
@@ -41,7 +42,14 @@ app.use(bodyParser.json());
 
 // static directory
 // app.use(express.static(path.join(__dirname, 'public')));
+
 app.get('/', (req, res) => res.render('index'));
+app.get('/show', (req, res) => res.render('show'));
+app.get('/config', (req, res) => {
+  request.post('http://192.168.1.206:8888/api/game', (error,response,body) => {
+    res.send(body);
+  })
+});
 
 server.listen(port, () => {
   console.log('Server listening at port %d', port);

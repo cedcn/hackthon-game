@@ -5,7 +5,8 @@ const hotMiddlewareScript = 'webpack-hot-middleware/client?reload=true';
 const config = {
   context: __dirname,
   entry: {
-    app: ['./client/App.jsx', hotMiddlewareScript]
+    app: ['./client/App.jsx', hotMiddlewareScript],
+    show: ['./client/Show.jsx', hotMiddlewareScript]
   },
   output: {
     path: path.resolve(__dirname, './public/'),
